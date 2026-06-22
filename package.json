@@ -1,7 +1,7 @@
 {
   "name": "device-plugin-switcher",
   "version": "1.0.15",
-  "description": "Choose which community plugins are enabled on desktop, mobile, both, or disabled.",
+  "description": "Choose which community extensions are enabled on desktop, mobile, both, or disabled.",
   "main": "main.js",
   "scripts": {
     "dev": "node esbuild.config.mjs",
@@ -22,8 +22,8 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.14.10",
-    "@typescript-eslint/eslint-plugin": "8.62.0",
-    "@typescript-eslint/parser": "8.62.0",
+    "@typescript-eslint/eslint-plugin": "^7.16.1",
+    "@typescript-eslint/parser": "^7.16.1",
     "esbuild": "^0.23.0",
     "eslint": "^9.7.0",
     "obsidian": "latest",

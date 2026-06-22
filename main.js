@@ -121,8 +121,8 @@ var DevicePluginSwitcherPlugin = class extends import_obsidian.Plugin {
       }
     });
     this.addCommand({
-      id: "open-settings",
-      name: "Open settings",
+      id: "open-options",
+      name: "Open options",
       callback: () => {
         var _a, _b;
         const appWithSetting = this.app;
@@ -382,7 +382,7 @@ var DevicePluginSwitcherSettingTab = class extends import_obsidian.PluginSetting
     const syncNote = containerEl.createDiv({ cls: "dps-sync-note" });
     syncNote.createEl("strong", { text: "Sync prerequisite: " });
     syncNote.createEl("span", {
-      text: "This extension does not sync settings by itself. To use the same assignment table on desktop and mobile, sync your Obsidian configuration and community extension settings between devices."
+      text: "This extension does not sync data by itself. To use the same assignment table on desktop and mobile, sync your configuration and community extension data between devices."
     });
     new import_obsidian.Setting(containerEl).setName("Plugin assignment table").setHeading();
     new import_obsidian.Setting(containerEl).setName("Search plugins").setDesc("Filter by plugin name or ID.").addText((text) => {

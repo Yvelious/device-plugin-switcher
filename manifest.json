@@ -1,7 +1,7 @@
 {
   "id": "device-plugin-switcher",
   "name": "Device Extensions Switcher",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "minAppVersion": "1.5.0",
   "description": "Choose which community extensions are enabled on desktop, mobile, both, or disabled.",
   "author": "Stanislav Levyshchev",

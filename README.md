@@ -108,12 +108,17 @@ Changes are applied immediately on the current device. For example, if you mark 
 
 You may want a setup like this:
 
-| Plugin                  | Current  | Both | Desktop only | Mobile only | Disabled |
-| ----------------------- | -------- | ---: | -----------: | ----------: | -------: |
-| Dataview                | Enabled  |    ● |            ○ |           ○ |        ○ |
-| Obsidian Git            | Enabled  |    ○ |            ● |           ○ |        ○ |
-| Advanced Mobile Toolbar | Disabled |    ○ |            ○ |           ● |        ○ |
-
+| Plugin | Mode |
+|---|---|
+| Dataview | Both |
+| Tasks | Both |
+| Omnisearch | Both |
+| Style Settings | Both |
+| Templater | Desktop only |
+| QuickAdd | Desktop only |
+| Obsidian Git | Desktop only |
+| Advanced Mobile Toolbar | Mobile only |
+| A heavy plugin you rarely use | Disabled |
 
 This keeps shared plugins and their settings in one place, while still allowing desktop and mobile to have different active plugin sets.
 

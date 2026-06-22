@@ -1,6 +1,28 @@
 # Changelog
 
+
+
+## 1.0.15
+
+- Renamed the display name to `Device Extensions Switcher`.
+- Updated the built-in SVG logo used in the settings header.
+- Updated `assets/logo.svg` to match the new logo artwork.
+- Replaced unsafe `innerHTML` SVG insertion with DOM-created SVG elements.
+- Replaced direct HTML heading elements with Obsidian `Setting(...).setHeading()` headings.
+- Removed the deprecated/unneeded `builtin-modules` dev dependency.
+- Shortened command IDs so they no longer include the plugin ID.
+- Shortened command names so they no longer include the plugin display name.
+- Wrapped asynchronous UI callbacks so they do not return Promises where a void callback is expected.
+- Removed hardcoded `.obsidian` wording from source strings to avoid configuration-folder warnings.
+- Confirmed there is no `innerHTML`/`outerHTML` usage in the current code.
+
+
 ## 1.0.14
+
+- Renamed the display name from `Device Plugin Switcher` to `Device Extensions Switcher` to comply with Obsidian community directory requirements.
+- Kept the plugin ID and repository name unchanged: `device-plugin-switcher`.
+
+## 1.0.13
 
 - Embedded the settings header logo directly into `main.js` as inline SVG markup.
 - Removed the runtime dependency on `assets/logo.png` for the settings UI.

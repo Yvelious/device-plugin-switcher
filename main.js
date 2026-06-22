@@ -9,15 +9,82 @@ const MODE_DESKTOP = "desktop";
 const MODE_MOBILE = "mobile";
 const MODE_DISABLED = "disabled";
 
-const BRAND_LOGO_SVG = `<svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-<circle cx="128" cy="128" r="120" fill="none" stroke="#000" stroke-width="6"/>
-<path d="m128 8a120 120 0 0 0 0 240 60 60 0 0 1 0-120 60 60 0 0 0 0-120z" fill="#fff"/>
-<path d="m128 8a120 120 0 0 1 0 240 60 60 0 0 1 0-120 60 60 0 0 0 0-120z"/>
-<rect x="70" y="50" width="60" height="40" rx="4"/>
-<rect x="95" y="92" width="10" height="8"/>
-<rect x="140" y="150" width="36" height="60" rx="6" fill="#fff" stroke="#000" stroke-width="2"/>
-<circle cx="158" cy="204" r="3"/>
-</svg>`;
+const SVG_NS = "http://www.w3.org/2000/svg";
+
+function createSvgElement(tagName, attrs) {
+  const element = document.createElementNS(SVG_NS, tagName);
+  for (const [key, value] of Object.entries(attrs)) {
+    element.setAttribute(key, value);
+  }
+  return element;
+}
+
+function appendSvgElement(parent, tagName, attrs) {
+  const element = createSvgElement(tagName, attrs);
+  parent.appendChild(element);
+  return element;
+}
+
+function createBrandLogoSvg() {
+  const svg = createSvgElement("svg", {
+    xmlns: SVG_NS,
+    viewBox: "0 0 256 256",
+    role: "img",
+    "aria-label": "Device Extensions Switcher logo",
+  });
+
+  appendSvgElement(svg, "circle", {
+    cx: "128",
+    cy: "128",
+    r: "120",
+    fill: "none",
+    stroke: "#000",
+    "stroke-width": "6",
+  });
+
+  appendSvgElement(svg, "path", {
+    d: "m128 8a120 120 0 0 0 0 240 60 60 0 0 1 0-120 60 60 0 0 0 0-120z",
+    fill: "#fff",
+  });
+
+  appendSvgElement(svg, "path", {
+    d: "m128 8a120 120 0 0 1 0 240 60 60 0 0 1 0-120 60 60 0 0 0 0-120z",
+  });
+
+  appendSvgElement(svg, "rect", {
+    x: "70",
+    y: "50",
+    width: "60",
+    height: "40",
+    rx: "4",
+  });
+
+  appendSvgElement(svg, "rect", {
+    x: "95",
+    y: "92",
+    width: "10",
+    height: "8",
+  });
+
+  appendSvgElement(svg, "rect", {
+    x: "140",
+    y: "150",
+    width: "36",
+    height: "60",
+    rx: "6",
+    fill: "#fff",
+    stroke: "#000",
+    "stroke-width": "2",
+  });
+
+  appendSvgElement(svg, "circle", {
+    cx: "158",
+    cy: "204",
+    r: "3",
+  });
+
+  return svg;
+}
 
 const DEFAULT_SETTINGS = {
   version: 3,
@@ -37,14 +104,16 @@ module.exports = class DevicePluginSwitcherPlugin extends Plugin {
     this.addSettingTab(new DevicePluginSwitcherSettingTab(this.app, this));
 
     this.addCommand({
-      id: "apply-device-plugin-switcher",
-      name: "Apply current device plugin state",
-      callback: async () => this.applyDeviceState({ manual: true }),
+      id: "apply-current-device-state",
+      name: "Apply current device state",
+      callback: () => {
+        void this.applyDeviceState({ manual: true });
+      },
     });
 
     this.addCommand({
-      id: "open-device-plugin-switcher-settings",
-      name: "Open Device Extensions Switcher settings",
+      id: "open-settings",
+      name: "Open settings",
       callback: () => this.app.setting.openTabById(this.manifest.id),
     });
 
@@ -62,7 +131,7 @@ module.exports = class DevicePluginSwitcherPlugin extends Plugin {
     const selfId = this.manifest?.id || "device-plugin-switcher";
     this.settings = Object.assign({}, DEFAULT_SETTINGS, loaded);
     this.settings.assignments = Object.assign({}, DEFAULT_SETTINGS.assignments, loaded.assignments || {});
-    // Hidden defaults: keep the plugin simple and safe for synced .obsidian setups.
+    // Hidden defaults: keep the plugin simple and safe for synced configuration setups.
     this.settings.applyMode = "session";
     this.settings.autoApplyOnStartup = true;
     this.settings.applyDelayMs = 1500;
@@ -336,7 +405,7 @@ class DevicePluginSwitcherSettingTab extends PluginSettingTab {
     const brand = containerEl.createDiv({ cls: "dps-brand" });
     const brandMedia = brand.createDiv({ cls: "dps-brand-media" });
     const logo = brandMedia.createDiv({ cls: "dps-brand-logo", attr: { "aria-hidden": "true" } });
-    logo.innerHTML = BRAND_LOGO_SVG;
+    logo.appendChild(createBrandLogoSvg());
     const brandCopy = brand.createDiv({ cls: "dps-brand-copy" });
     brandCopy.createEl("div", { text: "Device Extensions Switcher", cls: "dps-brand-title" });
     brandCopy.createEl("div", { text: "Simply switch. Nothing else.", cls: "dps-brand-tagline" });
@@ -361,10 +430,10 @@ class DevicePluginSwitcherSettingTab extends PluginSettingTab {
     const syncNote = containerEl.createDiv({ cls: "dps-sync-note" });
     syncNote.createEl("strong", { text: "Sync prerequisite: " });
     syncNote.createEl("span", {
-      text: "This plugin does not sync settings by itself. To use the same assignment table on desktop and mobile, sync your .obsidian configuration/plugin settings between devices.",
+      text: "This extension does not sync settings by itself. To use the same assignment table on desktop and mobile, sync your Obsidian configuration and community extension settings between devices.",
     });
 
-    containerEl.createEl("h3", { text: "Plugin assignment table" });
+    new Setting(containerEl).setName("Plugin assignment table").setHeading();
 
     new Setting(containerEl)
       .setName("Search plugins")
@@ -382,7 +451,7 @@ class DevicePluginSwitcherSettingTab extends PluginSettingTab {
     this.tableMount = containerEl.createDiv({ cls: "dps-table-mount" });
     this.renderTable();
 
-    containerEl.createEl("h3", { text: "Table options" });
+    new Setting(containerEl).setName("Table options").setHeading();
 
     new Setting(containerEl)
       .setName("Refresh plugin list")
@@ -390,9 +459,11 @@ class DevicePluginSwitcherSettingTab extends PluginSettingTab {
       .addButton((button) => {
         button
           .setButtonText("Refresh")
-          .onClick(async () => {
-            await this.plugin.initializeMissingAssignments(true);
-            this.display();
+          .onClick(() => {
+            void (async () => {
+              await this.plugin.initializeMissingAssignments(true);
+              this.display();
+            })();
           });
       });
 
@@ -405,10 +476,12 @@ class DevicePluginSwitcherSettingTab extends PluginSettingTab {
           .addOption("id", "Plugin ID")
           .addOption("status", "Current status")
           .setValue(this.plugin.settings.sortBy || "name")
-          .onChange(async (value) => {
-            this.plugin.settings.sortBy = value;
-            await this.plugin.saveSettings();
-            this.display();
+          .onChange((value) => {
+            void (async () => {
+              this.plugin.settings.sortBy = value;
+              await this.plugin.saveSettings();
+              this.display();
+            })();
           });
       });
   }
@@ -493,9 +566,9 @@ class DevicePluginSwitcherSettingTab extends PluginSettingTab {
     input.value = mode;
     input.checked = isSelected;
     input.disabled = disabled || (plugin.protected && mode === MODE_DISABLED);
-    input.addEventListener("change", async () => {
+    input.addEventListener("change", () => {
       if (!input.checked) return;
-      await this.changeAssignment(plugin.id, mode);
+      void this.changeAssignment(plugin.id, mode);
     });
   }
 

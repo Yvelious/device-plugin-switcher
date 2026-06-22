@@ -43,7 +43,7 @@ jobs:
             manifest.json
             styles.css
           body: |
-            Initial release of Device Extensions Switcher.
+            Initial release of Device Plugin Switcher.
 
             Required Obsidian community plugin assets are attached:
             - main.js

@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.0.16
+
+Release 1.0.16 of Device Extensions Switcher.
+
+This release includes fixes for Obsidian Community review checks:
+
+* Removed “Obsidian” from the plugin description.
+* Removed “settings” from settings headings.
+* Removed unsafe `innerHTML` usage.
+* Replaced direct HTML headings with Obsidian `Setting(...).setHeading()`.
+* Updated command IDs and command names to follow Obsidian guidelines.
+* Removed deprecated/unneeded build dependency usage.
+* Updated the built-in SVG logo.
+
+Required community extension assets are attached:
+
+* `main.js`
+* `manifest.json`
+* `styles.css`
 
 
 ## 1.0.15

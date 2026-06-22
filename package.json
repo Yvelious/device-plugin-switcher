@@ -1,6 +1,6 @@
 {
   "name": "device-plugin-switcher",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Choose which community plugins are enabled on desktop, mobile, both, or disabled.",
   "main": "main.js",
   "scripts": {

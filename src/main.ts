@@ -94,7 +94,7 @@ export default class DevicePluginSwitcherPlugin extends Plugin {
 
 		this.addCommand({
 			id: "open-device-plugin-switcher-settings",
-			name: "Open Device Plugin Switcher settings",
+			name: "Open Device Extensions Switcher settings",
 			callback: () => {
 				const appWithSetting = this.app as unknown as { setting?: { openTabById?: (id: string) => void } };
 				appWithSetting.setting?.openTabById?.(this.manifest.id);
@@ -309,7 +309,7 @@ export default class DevicePluginSwitcherPlugin extends Plugin {
 			try {
 				await this.enablePlugin(pluginId);
 			} catch (error) {
-				console.error(`[Device Plugin Switcher] Failed to enable ${pluginId}`, error);
+				console.error(`[Device Extensions Switcher] Failed to enable ${pluginId}`, error);
 				errors.push(`enable ${pluginId}: ${error instanceof Error ? error.message : String(error)}`);
 			}
 		}
@@ -318,7 +318,7 @@ export default class DevicePluginSwitcherPlugin extends Plugin {
 			try {
 				await this.disablePlugin(pluginId);
 			} catch (error) {
-				console.error(`[Device Plugin Switcher] Failed to disable ${pluginId}`, error);
+				console.error(`[Device Extensions Switcher] Failed to disable ${pluginId}`, error);
 				errors.push(`disable ${pluginId}: ${error instanceof Error ? error.message : String(error)}`);
 			}
 		}
@@ -326,9 +326,9 @@ export default class DevicePluginSwitcherPlugin extends Plugin {
 		if (manual || errors.length > 0) {
 			const device = this.getDeviceLabel();
 			if (errors.length > 0) {
-				new Notice(`Device Plugin Switcher: applied with ${errors.length} error(s). Check console.`);
+				new Notice(`Device Extensions Switcher: applied with ${errors.length} error(s). Check console.`);
 			} else {
-				new Notice(`Device Plugin Switcher: ${device} device state applied. Enabled ${plan.enable.length}, disabled ${plan.disable.length}.`);
+				new Notice(`Device Extensions Switcher: ${device} device state applied. Enabled ${plan.enable.length}, disabled ${plan.disable.length}.`);
 			}
 		}
 
@@ -380,7 +380,7 @@ class DevicePluginSwitcherSettingTab extends PluginSettingTab {
 		logo.innerHTML = BRAND_LOGO_SVG;
 
 		const brandCopy = brand.createDiv({ cls: "dps-brand-copy" });
-		brandCopy.createEl("div", { text: "Device Plugin Switcher", cls: "dps-brand-title" });
+		brandCopy.createEl("div", { text: "Device Extensions Switcher", cls: "dps-brand-title" });
 		brandCopy.createEl("div", { text: "Simply switch. Nothing else.", cls: "dps-brand-tagline" });
 	}
 

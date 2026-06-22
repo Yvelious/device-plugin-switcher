@@ -1,7 +1,7 @@
-# Device Plugin Switcher
+# Device Extensions Switcher
 
 <p align="center">
-  <img src="./assets/logo.svg" width="128" alt="Device Plugin Switcher logo">
+  <img src="./assets/logo.svg" width="128" alt="Device Extensions Switcher logo">
 </p>
 
 <p align="center">
@@ -12,7 +12,7 @@ Choose which Obsidian community plugins should be enabled on desktop, mobile, bo
 
 ## Important: this plugin does not sync your settings by itself
 
-Device Plugin Switcher manages **which installed community plugins are active on the current device**. It does not sync your vault, your plugins, or your plugin settings by itself.
+Device Extensions Switcher manages **which installed community plugins are active on the current device**. It does not sync your vault, your plugins, or your plugin settings by itself.
 
 For the same assignment table to be available on desktop and mobile, your Obsidian configuration must already be synced between devices.
 
@@ -37,9 +37,9 @@ If your devices do not sync Obsidian settings, the plugin will still work locall
 
 Recommended setup:
 
-- Install Device Plugin Switcher on every device where you want it to manage plugins.
+- Install Device Extensions Switcher on every device where you want it to manage plugins.
 - Sync the same `.obsidian` configuration folder between those devices.
-- Device Plugin Switcher uses safe defaults for synced setups: it applies device-specific plugin states without saving them into Obsidian's shared active plugin list.
+- Device Extensions Switcher uses safe defaults for synced setups: it applies device-specific plugin states without saving them into Obsidian's shared active plugin list.
 - Restart Obsidian after the first sync so installed plugins and plugin settings are loaded correctly.
 
 ## Why this plugin exists
@@ -64,13 +64,13 @@ For example:
 
 With two separate configuration folders, shared plugins often need to be installed, updated, and configured twice. If you change the settings of a plugin that you use on both devices, you may need to repeat the same change in the other configuration folder.
 
-Device Plugin Switcher was created to solve this problem.
+Device Extensions Switcher was created to solve this problem.
 
 It lets you keep one shared `.obsidian` folder, while controlling where each community plugin should be active.
 
 ## Built-in safe defaults
 
-Device Plugin Switcher intentionally keeps advanced apply behavior hidden.
+Device Extensions Switcher intentionally keeps advanced apply behavior hidden.
 
 By default, it:
 
@@ -83,7 +83,7 @@ The assignment table is still saved in this plugin's own settings and can be syn
 
 ## What it does
 
-Device Plugin Switcher adds a simple table to the plugin settings.
+Device Extensions Switcher adds a simple table to the plugin settings.
 
 For each installed community plugin, you can choose one of four modes:
 
@@ -98,7 +98,7 @@ When Obsidian starts, the plugin detects whether it is running on desktop or mob
 
 The settings screen is designed for both desktop and mobile.
 
-On desktop, Device Plugin Switcher uses a full table with separate columns for **Both**, **Desktop only**, **Mobile only**, and **Disabled**. The table header stays visible while scrolling through a long plugin list.
+On desktop, Device Extensions Switcher uses a full table with separate columns for **Both**, **Desktop only**, **Mobile only**, and **Disabled**. The table header stays visible while scrolling through a long plugin list.
 
 On mobile, the table uses a compact selector for each plugin instead of multiple columns. This keeps the settings usable on small screens.
 
@@ -140,7 +140,7 @@ You may need to:
 - keep shared plugin settings manually in sync
 - remember which settings belong to which device
 
-Device Plugin Switcher is useful when you want one shared configuration, but different active plugins depending on the device.
+Device Extensions Switcher is useful when you want one shared configuration, but different active plugins depending on the device.
 
 ## When this plugin is useful
 
@@ -162,7 +162,7 @@ You may still prefer separate config folders if you need different settings for 
 
 For example, if you want Dataview to have one configuration on desktop and a different configuration on mobile, then a shared `.obsidian` folder may not be enough.
 
-Device Plugin Switcher is best when shared plugins should also share their settings.
+Device Extensions Switcher is best when shared plugins should also share their settings.
 
 ## Features
 
@@ -184,7 +184,7 @@ Once the plugin is available in the Obsidian community plugin directory:
 
 1. Open **Settings**
 2. Go to **Community plugins**
-3. Search for **Device Plugin Switcher**
+3. Search for **Device Extensions Switcher**
 4. Install the plugin
 5. Enable it
 6. Open the plugin settings and choose the mode for each plugin
@@ -210,9 +210,9 @@ Then restart Obsidian and enable the plugin in **Community plugins**.
 ## Usage
 
 1. Make sure your Obsidian configuration/plugin settings are synced between the devices where you want to use the same assignment table.
-2. Install and enable **Device Plugin Switcher** on each device.
+2. Install and enable **Device Extensions Switcher** on each device.
 3. Open **Settings**.
-4. Go to **Device Plugin Switcher**.
+4. Go to **Device Extensions Switcher**.
 5. Find the plugin table.
 6. Select a mode for each installed plugin:
    - Both
@@ -270,7 +270,7 @@ temporary plugins
 
 ## Notes about plugin settings
 
-Device Plugin Switcher controls whether a plugin is active on desktop, mobile, both, or disabled.
+Device Extensions Switcher controls whether a plugin is active on desktop, mobile, both, or disabled.
 
 It does not create separate settings for the same plugin.
 
@@ -278,19 +278,19 @@ If a plugin is set to **Both**, it uses the same plugin settings on desktop and 
 
 ## Safety note
 
-Device Plugin Switcher changes the active state of other community plugins.
+Device Extensions Switcher changes the active state of other community plugins.
 
-For safety, Device Plugin Switcher protects itself from being disabled accidentally. It also does not appear in its own assignment table, so you cannot disable the switcher through the switcher itself.
+For safety, Device Extensions Switcher protects itself from being disabled accidentally. It also does not appear in its own assignment table, so you cannot disable the switcher through the switcher itself.
 
 ## Limitations
 
-Obsidian does not currently provide a fully public stable API for enabling and disabling other community plugins. Device Plugin Switcher uses Obsidian's internal plugin manager for this behavior.
+Obsidian does not currently provide a fully public stable API for enabling and disabling other community plugins. Device Extensions Switcher uses Obsidian's internal plugin manager for this behavior.
 
 This means the plugin is intended to be practical and useful, but future Obsidian updates may require adjustments.
 
 ## Privacy
 
-Device Plugin Switcher does not collect data.
+Device Extensions Switcher does not collect data.
 
 It does not use telemetry, analytics, or external network requests.
 

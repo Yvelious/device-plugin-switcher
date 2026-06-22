@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.13
+## 1.0.14
 
 - Embedded the settings header logo directly into `main.js` as inline SVG markup.
 - Removed the runtime dependency on `assets/logo.png` for the settings UI.
@@ -8,7 +8,7 @@
 
 ## 1.0.12
 
-- Hid Device Plugin Switcher from its own plugin assignment table.
+- Hid Device Extensions Switcher from its own plugin assignment table.
 - The plugin still protects itself internally and cannot be disabled by its own device assignment logic.
 - Updated the README safety note to explain that the switcher does not appear in its own table.
 

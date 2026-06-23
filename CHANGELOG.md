@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.0.19
+
+Initial release of Device Extensions Switcher.
+
+This release includes fixes for Obsidian Community review checks:
+
+* Updated README
+
+
+Required Obsidian community plugin assets are attached:
+
+main.js
+manifest.json
+styles.css
 
 ## 1.0.18
 

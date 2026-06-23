@@ -10,38 +10,6 @@
 
 Choose which Obsidian community plugins should be enabled on desktop, mobile, both, or disabled — while keeping one shared Obsidian configuration folder.
 
-## Important: this plugin does not sync your settings by itself
-
-Device Extensions Switcher manages **which installed community plugins are active on the current device**. It does not sync your vault, your plugins, or your plugin settings by itself.
-
-For the same assignment table to be available on desktop and mobile, your Obsidian configuration must already be synced between devices.
-
-This plugin is designed for setups where you use one shared configuration folder, usually:
-
-```text
-.obsidian
-```
-
-and that configuration folder is synced between devices.
-
-If you use Obsidian Sync, make sure community plugin syncing is enabled on the devices where you want this plugin to work. In Obsidian Sync settings, community plugins are not synced automatically by default; Obsidian requires enabling community plugin sync options such as **Installed community plugin list** and **Active community plugin list**.
-
-If you use another sync tool, make sure it syncs hidden folders/files and includes the `.obsidian` folder, especially:
-
-```text
-.obsidian/plugins/
-.obsidian/plugins/device-plugin-switcher/data.json
-```
-
-If your devices do not sync Obsidian settings, the plugin will still work locally on each device, but each device will have its own separate assignment table.
-
-Recommended setup:
-
-- Install Device Extensions Switcher on every device where you want it to manage plugins.
-- Sync the same `.obsidian` configuration folder between those devices.
-- Device Extensions Switcher uses safe defaults for synced setups: it applies device-specific plugin states without saving them into Obsidian's shared active plugin list.
-- Restart Obsidian after the first sync so installed plugins and plugin settings are loaded correctly.
-
 ## Why this plugin exists
 
 Obsidian already supports using a different configuration folder for different devices, for example:
@@ -108,17 +76,12 @@ Changes are applied immediately on the current device. For example, if you mark 
 
 You may want a setup like this:
 
-| Plugin | Mode |
-|---|---|
-| Dataview | Both |
-| Tasks | Both |
-| Omnisearch | Both |
-| Style Settings | Both |
-| Templater | Desktop only |
-| QuickAdd | Desktop only |
-| Obsidian Git | Desktop only |
-| Advanced Mobile Toolbar | Mobile only |
-| A heavy plugin you rarely use | Disabled |
+| Plugin                  | Current  | Both | Desktop only | Mobile only | Disabled |
+| ----------------------- | -------- | ---: | -----------: | ----------: | -------: |
+| Dataview                | Enabled  |    ● |            ○ |           ○ |        ○ |
+| Obsidian Git            | Enabled  |    ○ |            ● |           ○ |        ○ |
+| Advanced Mobile Toolbar | Disabled |    ○ |            ○ |           ● |        ○ |
+
 
 This keeps shared plugins and their settings in one place, while still allowing desktop and mobile to have different active plugin sets.
 
@@ -180,6 +143,39 @@ Device Extensions Switcher is best when shared plugins should also share their s
 - Useful for improving mobile startup performance
 - No telemetry
 - No network requests
+
+## Important: this plugin does not sync your settings by itself
+
+Device Extensions Switcher manages **which installed community plugins are active on the current device**. It does not sync your vault, your plugins, or your plugin settings by itself.
+
+For the same assignment table to be available on desktop and mobile, your Obsidian configuration must already be synced between devices.
+
+This plugin is designed for setups where you use one shared configuration folder, usually:
+
+```text
+.obsidian
+```
+
+and that configuration folder is synced between devices.
+
+If you use Obsidian Sync, make sure community plugin syncing is enabled on the devices where you want this plugin to work. In Obsidian Sync settings, community plugins are not synced automatically by default; Obsidian requires enabling community plugin sync options such as **Installed community plugin list** and **Active community plugin list**.
+
+If you use another sync tool, make sure it syncs hidden folders/files and includes the `.obsidian` folder, especially:
+
+```text
+.obsidian/plugins/
+.obsidian/plugins/device-plugin-switcher/data.json
+```
+
+If your devices do not sync Obsidian settings, the plugin will still work locally on each device, but each device will have its own separate assignment table.
+
+Recommended setup:
+
+- Install Device Extensions Switcher on every device where you want it to manage plugins.
+- Sync the same `.obsidian` configuration folder between those devices.
+- Device Extensions Switcher uses safe defaults for synced setups: it applies device-specific plugin states without saving them into Obsidian's shared active plugin list.
+- Restart Obsidian after the first sync so installed plugins and plugin settings are loaded correctly.
+
 
 ## Installation
 

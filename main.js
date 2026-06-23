@@ -393,7 +393,6 @@ var DevicePluginSwitcherSettingTab = class extends import_obsidian.PluginSetting
     });
     this.tableMount = containerEl.createDiv({ cls: "dps-table-mount" });
     this.renderTable();
-    new import_obsidian.Setting(containerEl).setName("Table options").setHeading();
     new import_obsidian.Setting(containerEl).setName("Refresh plugin list").setDesc("Reload the installed plugin list without resetting your selected modes.").addButton((button) => {
       button.setButtonText("Refresh").onClick(() => {
         void (async () => {

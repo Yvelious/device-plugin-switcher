@@ -1,5 +1,37 @@
 # Changelog
 
+
+## 1.0.18
+
+Initial release of Device Extensions Switcher.
+
+This release includes fixes for Obsidian Community review checks:
+
+* Removed “settings” from settings headings.
+
+
+Required Obsidian community plugin assets are attached:
+
+main.js
+manifest.json
+styles.css
+
+
+## 1.0.17
+
+Initial release of Device Extensions Switcher.
+
+This release includes fixes for Obsidian Community review checks:
+
+* Removed “settings” from settings headings.
+
+
+Required Obsidian community plugin assets are attached:
+
+main.js
+manifest.json
+styles.css
+
 ## 1.0.16
 
 Release 1.0.16 of Device Extensions Switcher.

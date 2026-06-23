@@ -493,8 +493,6 @@ class DevicePluginSwitcherSettingTab extends PluginSettingTab {
 		this.tableMount = containerEl.createDiv({ cls: "dps-table-mount" });
 		this.renderTable();
 
-		new Setting(containerEl).setName("Table options").setHeading();
-
 		new Setting(containerEl)
 			.setName("Refresh plugin list")
 			.setDesc("Reload the installed plugin list without resetting your selected modes.")

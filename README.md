@@ -23,6 +23,13 @@ For each installed community plugin, you can choose one of four modes:
 
 When Obsidian starts, the plugin detects whether it is running on desktop or mobile and applies the correct plugin state.
 
+## Like it? Help others find it
+
+If this extension saves you from maintaining separate desktop and mobile configuration folders, a like in the Obsidian Community directory or a GitHub star would really help.
+
+It makes the project more visible and helps other users discover it.
+
+
 ## Why this plugin exists
 
 Obsidian already supports using a different configuration folder for different devices, for example:

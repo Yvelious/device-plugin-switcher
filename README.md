@@ -10,6 +10,19 @@
 
 Choose which Obsidian community plugins should be enabled on desktop, mobile, both, or disabled — while keeping one shared Obsidian configuration folder.
 
+## What it does
+
+Device Extensions Switcher adds a simple table to the plugin settings.
+
+For each installed community plugin, you can choose one of four modes:
+
+- **Both** — enabled on desktop and mobile
+- **Desktop only** — enabled only on desktop
+- **Mobile only** — enabled only on mobile
+- **Disabled** — disabled everywhere
+
+When Obsidian starts, the plugin detects whether it is running on desktop or mobile and applies the correct plugin state.
+
 ## Why this plugin exists
 
 Obsidian already supports using a different configuration folder for different devices, for example:
@@ -48,19 +61,6 @@ By default, it:
 - applies plugin states without saving them into Obsidian's shared active plugin list
 
 The assignment table is still saved in this plugin's own settings and can be synced between devices.
-
-## What it does
-
-Device Extensions Switcher adds a simple table to the plugin settings.
-
-For each installed community plugin, you can choose one of four modes:
-
-- **Both** — enabled on desktop and mobile
-- **Desktop only** — enabled only on desktop
-- **Mobile only** — enabled only on mobile
-- **Disabled** — disabled everywhere
-
-When Obsidian starts, the plugin detects whether it is running on desktop or mobile and applies the correct plugin state.
 
 ## User interface
 

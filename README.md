@@ -5,10 +5,22 @@
 </p>
 
 <p align="center">
-  <strong>Simply switch. Nothing else.</strong>
+  <strong>Simply switch plugins. Nothing else.</strong>
 </p>
 
-Choose which Obsidian community plugins should be enabled on desktop, mobile, both, or disabled — while keeping one shared Obsidian configuration folder.
+<p align="center">Choose which Obsidian community plugins should be enabled on desktop, mobile, both, or disabled — while keeping one shared Obsidian configuration folder.</p>
+<br>
+<hr>
+<p align="center">
+ <b>If you find this plugin useful, you can support its development</b>
+</p>
+<p align="center">
+  <a href="https://ko-fi.com/yvelious">
+    <img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Support me on Ko-fi">
+  </a>
+</p>
+<hr>
+<br>
 
 ## What it does
 
@@ -28,6 +40,7 @@ When Obsidian starts, the plugin detects whether it is running on desktop or mob
 If this extension saves you from maintaining separate desktop and mobile configuration folders, a like in the Obsidian Community directory or a GitHub star would really help.
 
 It makes the project more visible and helps other users discover it.
+
 
 
 ## Why this plugin exists
@@ -330,6 +343,21 @@ Prepare release files:
 npm run prepare-release
 ```
 
+
 ## License
 
 MIT
+
+
+<br>
+<hr>
+<p align="center">
+ <b>If you find this plugin useful, you can support its development</b>
+</p>
+<p align="center">
+  <a href="https://ko-fi.com/yvelious">
+    <img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Support me on Ko-fi">
+  </a>
+</p>
+<hr>
+<br>

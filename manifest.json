@@ -5,6 +5,7 @@
   "minAppVersion": "1.5.0",
   "description": "Choose which community extensions are enabled on desktop, mobile, both, or disabled.",
   "author": "Stanislav Levyshchev",
-  "authorUrl": "https://github.com/yvelious",
+  "authorUrl": "https://yvelious.github.io",
+  "fundingUrl": "https://ko-fi.com/yvelious",
   "isDesktopOnly": false
 }
